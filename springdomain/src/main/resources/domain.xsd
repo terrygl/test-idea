@@ -1,0 +1,98 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://spring.joe/springdomain.domain"
+	targetNamespace="http://spring.joe/springdomain.domain"
+	elementFormDefault="qualified">
+
+
+	<xs:complexType name="AccountDto">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" />
+			<xs:element name="accountType" type="xs:string" />
+			<xs:element name="accountNumber" type="xs:string" />
+			<xs:element name="customerId" type="xs:long" />
+			<xs:element name="customerFirstName" type="xs:string" />
+			<xs:element name="customerLastName" type="xs:string" />
+			<xs:element name="customerUserName" type="xs:string" />
+			<xs:element name="customerBirthDate" type="xs:date" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AddressDto">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" />
+			<xs:element name="addressType" type="xs:string" />
+			<xs:element name="primaryAddressLine" type="xs:string" />
+			<xs:element name="secondaryAddressLine" type="xs:string" />
+			<xs:element name="city" type="xs:string" />
+			<xs:element name="stateCode" type="xs:string" />
+			<xs:element name="zipCode" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerDto">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" />
+			<xs:element name="firstName" type="xs:string" />
+			<xs:element name="lastName" type="xs:string" />
+			<xs:element name="userName" type="xs:string" />
+			<xs:element name="birthDate" type="xs:date" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CountryDto">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="code" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StateDto">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="code" type="xs:string" />
+			<xs:element name="countryCode" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="CountryRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="CountryResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="country" type="tns:CountryDto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="StateRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="StateResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="state" type="tns:StateDto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="CurrencyType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GBP" />
+			<xs:enumeration value="EUR" />
+			<xs:enumeration value="PLN" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

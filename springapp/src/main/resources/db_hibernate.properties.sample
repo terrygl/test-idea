@@ -1,0 +1,19 @@
+# DB Hibernate properties file. Rename this file and remove the .sample extension, and replace the 
+# placeholder values below.
+
+#Oracle Database Configuration
+db.driverType=thin
+db.server=localhost
+db.port=<DB_PORT>
+db.name=<DB_NAME>
+db.driverClass=oracle.jdbc.OracleDriver
+db.username=<USERNAME>
+db.password=<PASSWORD>
+
+#Hibernate Configuration
+hibernate.format_sql=true
+hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+hibernate.ejb.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy
+hibernate.show_sql=false
+
+entitymanager.packages.to.scan=joe.spring.springapp.data
